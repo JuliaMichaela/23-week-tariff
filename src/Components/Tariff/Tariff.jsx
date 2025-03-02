@@ -1,12 +1,19 @@
 import './Tariff.scss';
 
-export default function Tariff({ name, price, speed, text, classData }) {
+export default function Tariff(props) {
+    const { card, theme, isSelected } = props;
+    const classCard = (isSelected ? "selected" : "");
+
     return (
-        <div className='card'>
-            <div className={classData}>{name}</div>
-            <div>{price}</div>
-            <div>{speed}</div>
-            <p>{text}</p>
+        <div className={`card ${classCard}`}>
+            <header className={`card_header ${theme.card_header}`}>{card.name}</header>
+            <div className={`card_price ${theme.card_price}`}>
+                <p className="card_value">{card.priceTextHigh}</p>
+                <p className="card_number">{card.price}</p>
+                <p className="card_date">{card.priceTextLow}</p>
+            </div>
+            <div className="card_speed">{card.speed}</div>
+            <footer className="card_footer">{card.condition}</footer>
         </div>
-    )
+    );
 }
