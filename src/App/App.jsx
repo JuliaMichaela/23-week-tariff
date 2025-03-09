@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Tariff from '../Components/Tariff/Tariff';
 import './App.scss';
 import tariffs from '../data/tarriffs';
@@ -7,6 +8,7 @@ import themeC from "../styles/550.module.scss";
 import themeD from "../styles/1000.module.scss";
 
 function App() {
+  const [selectedId, setSelectedId] = useState();
 
   const themes = [themeA, themeB, themeC, themeD];
 
@@ -17,7 +19,8 @@ function App() {
           <Tariff
             key={tariff.id}
             card={tariff}
-            isSelected={tariff.isSelected}
+            isSelected={tariff.id === selectedId}
+            setId={setSelectedId}
             theme={themes[i]}
           />
         )
