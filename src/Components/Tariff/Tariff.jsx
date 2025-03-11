@@ -1,7 +1,6 @@
 import './Tariff.scss';
 
-export default function Tariff(props) {
-    const { card, theme, setId, isSelected } = props;
+export default function Tariff({ card, theme, setId, isSelected }) {
     const classCard = (isSelected ? "selected" : "");
 
     function handleChange() {
